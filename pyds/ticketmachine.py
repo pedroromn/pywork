@@ -40,8 +40,8 @@ class MaquinaBoleto(object):
         return vueltas
 
     def __formato_impresion_boleto(self):
-        print("##############################")
-        print("#        Línea Blue           ")
-        print("#        Boleto               ")
-        print("#        " + str(self._precio) + " cvos.")
-        print("##############################\n")
+        print("******************************")
+        print("*        Línea Blue           ")
+        print("*        Boleto               ")
+        print("*        " + str(self._precio) + " cvos.")
+        print("******************************\n")

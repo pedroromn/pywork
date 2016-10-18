@@ -10,9 +10,9 @@ from twitter.oauth_dance import oauth_dance
 # Go to http://twitter.com/apps/new to create an app and get these items
 # See also http://dev.twitter.com/pages/oauth_single_token
 
-APP_NAME = 'explorer-twitter'
-CONSUMER_KEY = 'J4pevsxysB21KtQc8llfBxgzl'
-CONSUMER_SECRET = 'LcbPbV91uB267wPh5LSXjRfrHKbPUclfG5X8BoQR8Cyvpy37lT'
+APP_NAME = ''
+CONSUMER_KEY = ''
+CONSUMER_SECRET = ''
 
 
 def oauth_login(app_name=APP_NAME,

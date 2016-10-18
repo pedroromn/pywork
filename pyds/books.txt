@@ -1,2 +1,7 @@
 Data Structures and Algorithms in Python.pdf -> 169 (191 of 770)
 
+ProblemSolvingwithAlgorithmsDataStructures.pdf -> 52 (56 of 240)
+
+FundamentalOfPythonDataStructures.pdf -> 60 (83 of 449)
+
+

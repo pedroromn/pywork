@@ -1,7 +1,11 @@
-Data Structures and Algorithms in Python.pdf -> 169 (191 of 770)
+Data Structures and Algorithms in Python.pdf -> 183 (205 of 770)
 
-ProblemSolvingwithAlgorithmsDataStructures.pdf -> 52 (56 of 240)
+ProblemSolvingwithAlgorithmsDataStructures.pdf -> 61 (65 of 240)
 
 FundamentalOfPythonDataStructures.pdf -> 60 (83 of 449)
 
+Learn to program with python -> 182 (202 of 281)
 
+Fluent Python -> 31 (56 of 751)
+
+Fundamentals of Python From First Programs Through Data Structures -> 224 (254 of 945)

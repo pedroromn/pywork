@@ -10,7 +10,7 @@ Fluent Python -> 31 (56 of 751)
 
 Fundamentals of Python From First Programs Through Data Structures -> 159 (189 of 945)
 
-Python How To Program -> 131 / 1103
+Python How To Program -> 148 / 1103
 
 
 

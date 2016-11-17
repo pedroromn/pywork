@@ -8,13 +8,13 @@ Learn to program with python -> 182 (202 of 281)
 
 Fluent Python -> 31 (56 of 751)
 
-Fundamentals of Python From First Programs Through Data Structures -> 184 (214 of 945)
+Fundamentals of Python From First Programs Through Data Structures -> 219 (249 of 945)
 
-Python How To Program -> 176 / 1103
+Python How To Program -> 204 / 1103
 
-The Quick Python Book.pdf -> 81 (106 of 362)
+The Quick Python Book.pdf -> 119 (144 of 362)
 
-Learning Python 5E.pdf -> 250 (302 of 1594)
+Learning Python 5E.pdf -> 282 (334 of 1594)
 
 
 Python Exercises, Practice, Solution -> http://www.w3resource.com/python-exercises/

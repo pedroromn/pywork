@@ -4,17 +4,23 @@ ProblemSolvingwithAlgorithmsDataStructures.pdf -> 61 (65 of 240)
 
 FundamentalOfPythonDataStructures.pdf -> 60 (83 of 449)
 
-Learn to program with python -> 182 (202 of 281)
+Data Structures And Algorithmic Thinking With Python -> 18 / 471
+
+Data Structures and Algorithms with Python -> 3 (18 of 369)
+
+-----------------------------------------------------------------------------------------------------------------
+
+Fundamentals of Python From First Programs Through Data Structures -> 224 (249 of 945)
+
+Python How To Program -> 158 / 1103
+
+The Quick Python Book.pdf -> 45 (144 of 362)
+
+Learning Python 5E.pdf -> 99 (334 of 1594)
+
+-----------------------------------------------------------------------------------------------------------------
 
 Fluent Python -> 31 (56 of 751)
-
-Fundamentals of Python From First Programs Through Data Structures -> 219 (249 of 945)
-
-Python How To Program -> 204 / 1103
-
-The Quick Python Book.pdf -> 119 (144 of 362)
-
-Learning Python 5E.pdf -> 282 (334 of 1594)
-
+Learn to program with python -> 182 (202 of 281)
 
 Python Exercises, Practice, Solution -> http://www.w3resource.com/python-exercises/

@@ -10,7 +10,7 @@ Data Structures and Algorithms with Python -> 3 (18 of 369)
 
 -----------------------------------------------------------------------------------------------------------------
 
-Fundamentals of Python From First Programs Through Data Structures -> 224 (249 of 945)
+Fundamentals of Python From First Programs Through Data Structures -> 247 (277 of 945)
 
 Python How To Program -> 158 / 1103
 

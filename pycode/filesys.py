@@ -28,6 +28,7 @@ def main():
     """Main Function"""
     while True:
         print os.getcwd()
+        print
         print MENU
         command = accept_command()
         run_command(command)
@@ -56,7 +57,7 @@ def run_command(command):
         print "The total number of files is", \
             count_files(os.getcwd())
     elif command == '5':
-        print "The toal number of bytes is", \
+        print "The total number of bytes is", \
             count_bytes(os.getcwd())
     elif command == '6':
         target = raw_input("Enter the search string: ")
@@ -64,8 +65,8 @@ def run_command(command):
         if not file_list:
             print "String not found"
         else:
-            for f in file_list:
-                print f
+            for file_target in file_list:
+                print "Archivo localizado!" + " -> " + file_target
 
 
 def list_current_dir(dir_name):
@@ -87,4 +88,50 @@ def move_down(current_dir):
     else:
         print "ERROR: no such name"
 
+def count_files(path):
+    """Returns the number of files in the cwd and alls 
+    its subdirectories."""
+    count = 0
+    lyst = os.listdir(path)
+    for element in lyst:
+        if os.path.isfile(element):
+            count += 1
+        else:
+            os.chdir(element)
+            count += count_files(os.getcwd())
+            os.chdir("..")
+    return count
 
+def count_bytes(path):
+    """Returns the number of bytes in the cwd and all 
+    its subdirectories"""
+    count = 0
+    lyst = os.listdir(path)
+    for element in lyst:
+        if os.path.isfile(element):
+            count += os.path.getsize(element)
+        else:
+            os.chdir(element)
+            count += count_bytes(os.getcwd())
+            os.chdir("..")
+    return count
+
+
+def find_files(target, path):
+    """Returns a list of the filenames that contain
+    the target string int he cwd and all its subdirectories."""
+    files = []
+    lyst = os.listdir(path)
+    for element in lyst:
+        if os.path.isfile(element):
+            if element == target:
+                files.append(path + os.sep + element)
+        else:
+            os.chdir(element)
+            files.extend(find_files(target, os.getcwd()))
+            os.chdir("..")
+    return files
+
+
+if __name__ == "__main__":
+    main()

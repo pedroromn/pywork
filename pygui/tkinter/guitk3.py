@@ -23,3 +23,12 @@ class ButtonDemo(Frame):
             self._label["text"] == "Goodbye"
         else:
             self._label["text"] == "Hello"
+
+
+def main():
+    demo = ButtonDemo()
+    demo.mainloop()
+
+
+if __name__ == "__main__":
+    main()

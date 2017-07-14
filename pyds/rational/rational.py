@@ -28,3 +28,9 @@ class Rational(object):
         while b > 0:
             (a, b) = (b, a % b)
         return a
+
+    def __add__(self, other):
+        new_numer = self._numer * other._denom + \
+                    other._numer * self._denom
+        new_denom = self._denom * other._denom
+        return Rational(new_numer, new_denom)

@@ -24,4 +24,4 @@ class Circle(Point):
         return math.pi * self.radius**2
 
     def __str__(self):
-        return 
+        return "{" + " ({},{}) , {} ".format(self.x, self.y, self.radius) + "}"

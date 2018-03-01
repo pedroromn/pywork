@@ -20,7 +20,4 @@ class ConsumeInteger( threading.Thread ):
             sum += self.sharedObject.getSharedNumber()
 
         print "{} retrieved values totaling: {}".format(self.getName, sum)
-        print "Terminating ", self.getName()
-
-
-    
+        print "Terminating ", self.getName() 

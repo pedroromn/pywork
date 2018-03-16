@@ -8,9 +8,9 @@ import time
 
 class ProduceInteger( threading.Thread ):
 
-    def __init__(self, thread_name, shared_object):
+    def __init__(self, thread_name, sharedObject):
         threading.Thread.__init__(self, name = thread_name)
-        self.sharedObject = shared_object
+        self.sharedObject = sharedObject
 
     def run(self):
         for i in range(1,11):

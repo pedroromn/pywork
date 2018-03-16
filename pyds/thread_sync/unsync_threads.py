@@ -1,25 +1,23 @@
-#! -*- coding: utf-8 -*-
-# Unsynchronized acces to an integer
+#! -*- coding: utf-8 -*- 
+# Show multiple threads modifyng  shared objects
 
-import threading 
+from unsync_integer import UnsynchronizedInteger
+from produce_integer import ProduceInteger
+from consume_integer import ConsumeInteger
 
+# initialize integer and threads
+number = UnsynchronizedInteger()
+producer = ProduceInteger("Producer", number)
+consumer = ConsumeInteger("Consumer", number)
 
-class UnsynchronizedInteger(object):
+print "Starting threads ...\n"
 
-    def __init__(self):
-        self.sharedNumber = -1
+# start threads
+producer.start()
+consumer.start()
 
-    def setSharedNumber(self, new_number):
-        print "{} setting sharedNumber to {}".format(
-            threading.currentThread().getName(),
-            newNumber
-        )
-        self.sharedNumber = new_number
+# wait for threads to terminate
+producer.join()
+consumer.join()
 
-    def getSharedNumber(self):
-        temp_number = self.sharedNumber
-        print "{} retrieving sharedNumber value {}".format(
-            threading.currentThread().getName(),
-            temp_number
-        )
-        return temp_number
+print "\nAll threads have terminated."

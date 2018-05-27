@@ -1,35 +1,38 @@
-#! -*- coding: utf-8 -*-
+# Fig. 20.3: fig20_03.py
+# Set up a client that will read information sent
+# from a server and display that information.
 
 import socket
-
+import sys
 
 HOST = "127.0.0.1"
-PORT = 80
-MAX_BYTES = 1024
+PORT = 5000
 
-
-# step 1: create a socket
+# step 1: create socket
 print "Attempting connection"
-client_socket = socket.socket( socket.AF_INET, socket.SOCK_STREAM )
+mySocket = socket.socket( socket.AF_INET, socket.SOCK_STREAM )
 
+# step 2: make connection request to server
+try:
+   mySocket.connect( ( HOST, PORT ) )
+except socket.error:
+   sys.exit( "Call to connect failed" )
 
-# step 2: connect to server
-client_socket.connect( (HOST, PORT) )
-print "connected to server"
+print "Connected to Server"
 
-# step 3: process connection
-server_message = client_socket.recv( MAX_BYTES )
+# step 3: transmit data via connection
+serverMessage = mySocket.recv( 1024 )
 
-while server_message != "SERVER>> TERMINATE":
+while serverMessage != "SERVER>>> TERMINATE":
 
-    if not server_message:
-        break
+   if not serverMessage:
+      break
 
-    print server_message
-    client_message = raw_input("CLIENT>>> ")
-    client_socket.send( "CLIENT>>> " + client_message )
-    server_message = client_socket.recv( MAX_BYTES )
+   print serverMessage
+   clientMessage = raw_input( "CLIENT>>> " )
+   mySocket.send( "CLIENT>>> " + clientMessage )
+   serverMessage = mySocket.recv( 1024 )
 
 # step 4: close connection
 print "Connection terminated"
-client_socket.close()
+mySocket.close()

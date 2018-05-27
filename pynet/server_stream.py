@@ -1,51 +1,52 @@
-#! -*- coding: utf-8 -*- 
-# Set up a server tha will receive  a connection 
-# from a client, send a string to the client
-# and close the connection
+# Fig. 20.2: fig20_02.py
+# Set up a server that will receive a connection
+# from a client, send a string to the client,
+# and close the connection.
 
-from __future__ import print_function
 import socket
-
-
+import sys
 
 HOST = "127.0.0.1"
-PORT = 80
-MAX_BYTES = 1024
+PORT = 5000
 counter = 0
 
-# step 1: create a socket
-print("<< Waiting for connection >>")
-socket_server = socket.socket( socket.AF_INET, socket.SOCK_STREAM )
+# step 1: create socket
+mySocket = socket.socket( socket.AF_INET, socket.SOCK_STREAM )
 
-# step 2: bind the socket
-socket_server.bind( (HOST, PORT) )
+# step 2: bind the socket to address
+try:
+   mySocket.bind( ( HOST, PORT ) ) 
+except socket.error:
+   sys.exit( "Call to bind failed" )
 
 while 1:
-    # prepare for a connection
-    print("<< Waiting for connection >>")
-    socket_server.listen(1)
 
-    # step 4: wait for and accept a connection
-    socket_conn, address = socket_server.accept()
-    counter += 1
-    print("Connection", counter, "received from ", address[0])
+   # step 3: wait for connection request
+   print "Waiting for connection"
+   mySocket.listen( 1 )
 
-    # step 5: process connection
-    socket_conn.send("SERVER>>> Connection successful")
-    client_message = socket_conn.recv(MAX_BYTES)
+   # step 4: establish connection for request
+   connection, address = mySocket.accept()
+   counter += 1
+   print "Connection", counter, "received from:", address[ 0 ]
 
-    while client_message != "CLIENT>>> TERMINATE":
+   # step 5: send and receive data via connection
+   connection.send( "SERVER>>> Connection successful" )
+   clientMessage = connection.recv( 1024 )
 
-        if not client_message:
-            break
-        
-        print(client_message)
-        server_message = raw_input("SERVER>>> ")
-        socket_conn.send("SERVER>>> " + server_message)
-        client_message = socket_conn.recv(MAX_BYTES)
+   while clientMessage != "CLIENT>>> TERMINATE":
 
-    print("Connection terminated")
-    socket_conn.close()
+      if not clientMessage:
+         break
+
+      print clientMessage
+      serverMessage = raw_input( "SERVER>>> " )
+      connection.send( "SERVER>>> " + serverMessage )
+      clientMessage = connection.recv( 1024 )
+
+   # step 6: close connection
+   print "Connection terminated"
+   connection.close()
 
 
 

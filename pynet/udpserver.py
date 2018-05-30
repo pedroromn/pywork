@@ -27,7 +27,7 @@ while 1:
 
     # step 4: echo packet back to client
     print "\nEcho data to client...",
-    socket_server.sendto( packet, address )
+    server_socket.sendto( packet, address )
     print "Packet sent\n"
 
 server_socket.close()

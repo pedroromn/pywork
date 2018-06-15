@@ -75,3 +75,70 @@ class TicTacToeServer(object):
         self.turn_condition = threading.Condition()
         self.game_begin_event = threading.Event()
 
+        for i in range( 9 ):
+            self.board.append(None)
+
+
+        # setup server socket
+        self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.server.bind( (HOST, PORT) )
+        self.display("Server awaiting connections...")
+
+    def execute( self ):
+        "Play the game -- create and start both player threads"
+
+        self.players = []
+
+        for i in range( 2 ):
+            self.server.listen(1)
+            connection, address = self.server.accept()
+            self.players.append( Player( connection, self, i) )
+            self.players[-1].start()
+
+        # players are suspended until player o connects
+        # resume players now
+        self.game_begin_event.set()
+
+    def display( self, message ):
+        "Display a message on the server"
+
+        print message
+
+    def valid_move( self, location, player ):
+        "Determine if a moce is valid -- if so, make move"
+
+        # only one move can be made at time
+        self.turn_condition.acquire()
+
+        while player != self.current_player:
+            self.turn_condition.wait()
+
+        if not self.is_occupied( location ):
+
+            if self.current_player == 0:
+                self.board[ location ] = 'X'
+            else:
+                self.board[ location ] = 'O'
+
+            self.current_player = ( self.current_player + 1) % 2
+            self.players[ self.current_player ].other_player_moved( location )
+            self.turn_condition.notify()
+            self.turn_condition.release()
+            return 1
+        else:
+            self.turn_condition.notify()
+            self.turn_condition.release()
+            return 0
+
+    def is_occupied( self, location ):
+        "Determine if a space is occupied"
+
+        return self.board[location]  # a empty space is None
+
+    def game_over( self ):
+        "Determine if the game is over"
+
+        # place code here testing for a game winner
+        # left as a exercise for the reader
+
+        return 0    

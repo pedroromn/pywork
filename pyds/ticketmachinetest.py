@@ -12,7 +12,7 @@ def main():
     sep = "**********"
     print(5 * sep)
     ticket_machine = MaquinaBoleto(1000)
-    cantidad = float(raw_input("Introduzca su dinero: "))
+    cantidad = float(input("Introduzca su dinero: "))
     ticket_machine.insertar_dinero(cantidad)
     sep = "**********"
     print(5 * sep)

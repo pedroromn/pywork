@@ -20,7 +20,7 @@ class MaquinaBoleto(object):
 
     def insertar_dinero(self, cantidad):
         while cantidad <= 0:
-            cantidad = float(raw_input("Introduzca dinero: "))
+            cantidad = float(input("Introduzca dinero: "))
         self._saldo += cantidad
 
     def imprimir_boleto(self):
